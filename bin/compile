@@ -15,9 +15,9 @@ mkdir -p ${cache}
 tmate_file="tmate.tgz"
 
 libe_version="2.0.22"
-libe_dir="libevent-release-${libe_version}-stable"
-libe_file="release-${libe_version}-stable.tar.gz"
-libe_url="https://github.com/libevent/libevent/archive/${libe_file}"
+libe_dir="libevent-${libe_version}-stable"
+libe_file="libevent-${libe_version}-stable.tar.gz"
+libe_url="https://sourceforge.net/projects/levent/files/libevent/libevent-2.0/${libe_file}"
 
 cache_target=${cache}/${tmate_file}
 build_target=${build}
@@ -32,7 +32,6 @@ if [ ! -f ${cache_target} ]; then
   curl -L -s ${libe_url} > ${libe_file}
   tar zxf ${libe_file}
   cd ${libe_dir}
-  ./autogen.sh
   ./configure --prefix=${target} | indent
   make install | indent
   cd ..
