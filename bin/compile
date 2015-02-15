@@ -32,6 +32,7 @@ if [ ! -f ${cache_target} ]; then
   curl -L -s ${libe_url} > ${libe_file}
   tar zxf ${libe_file}
   cd ${libe_dir}
+  ./autogen.sh
   ./configure --prefix=${target} | indent
   make install | indent
   cd ..
